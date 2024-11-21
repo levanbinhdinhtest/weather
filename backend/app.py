@@ -20,6 +20,46 @@ def get_db_connection():
     return connection
 
 # API để lấy tất cả dữ liệu thời tiết theo ngayf
+@app.route('/api/weather', methods=['GET'])
+def get_weather_data():
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)  # Trả về kết quả dưới dạng dictionary
+    cursor.execute('SELECT * FROM weather_decomposition')
+    weather_data = cursor.fetchall()  # Lấy tất cả dữ liệu từ bảng
+    cursor.close()
+    connection.close()
+    return jsonify(weather_data)  # Trả về dữ liệu dưới dạng JSON
+# API mới để lấy dữ liệu date và trend
+@app.route('/api/weather/pattern3', methods=['GET'])
+def get_weather_pattern3():
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)  # Trả về kết quả dưới dạng dictionary
+    cursor.execute('SELECT date, trend FROM weather_decomposition')  # Chỉ lấy date và residual
+    weather_data = cursor.fetchall()  # Lấy tất cả dữ liệu từ bảng
+    cursor.close()
+    connection.close()
+    return jsonify(weather_data)
+# API mới để lấy dữ liệu date và residual
+@app.route('/api/weather/pattern5', methods=['GET'])
+def get_weather_pattern5():
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)  # Trả về kết quả dưới dạng dictionary
+    cursor.execute('SELECT date, residual FROM weather_decomposition')  # Chỉ lấy date và residual
+    weather_data = cursor.fetchall()  # Lấy tất cả dữ liệu từ bảng
+    cursor.close()
+    connection.close()
+    return jsonify(weather_data)  # Trả về dữ liệu dưới dạng JSON
+# API mới để lấy dữ liệu date và seasonal
+@app.route('/api/weather/pattern4', methods=['GET'])
+def get_weather_pattern4():
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)  # Trả về kết quả dưới dạng dictionary
+    cursor.execute('SELECT date, seasonal FROM weather_decomposition')  # Chỉ lấy date và residual
+    weather_data = cursor.fetchall()  # Lấy tất cả dữ liệu từ bảng
+    cursor.close()
+    connection.close()
+    return jsonify(weather_data)  # Trả về dữ liệu dưới dạng JSON
+# API để lấy tất cả dữ liệu thời tiết theo tuan
 @app.route('/api/weather/daily', methods=['GET'])
 def get_weather_data_daily():
     connection = get_db_connection()
@@ -29,7 +69,6 @@ def get_weather_data_daily():
     cursor.close()
     connection.close()
     return jsonify(weather_data)  # Trả về dữ liệu dưới dạng JSON
-
 # API để lấy tất cả dữ liệu thời tiết theo tuan
 @app.route('/api/weather/weekly', methods=['GET'])
 def get_weather_data_weekly():
