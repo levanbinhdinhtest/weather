@@ -1,14 +1,11 @@
 import React from 'react';
-import ChartComponent from './ChartComponent';
+import ChartComponent from './ChartComponent'; // Đảm bảo rằng bạn đã import đúng
 
 function App() {
   return (
     <div>
-      <h1>Ứng dụng Hiển thị Biểu đồ</h1>
-      <div>
+      {/* Có thể thêm header hoặc một số thông tin khác ở đây */}
       <ChartComponent />
-      </div>
-     
     </div>
   );
 }

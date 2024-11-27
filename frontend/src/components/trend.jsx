@@ -7,7 +7,7 @@ const Trend = () => {
   const [trendData, setTrendData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/weather/pattern3')
+    axios.get('http://127.0.0.1:5000/api/weather/pattern2')
       .then((response) => {
         const dates = response.data.map(item => new Date(item.date).toISOString());
         const trendValues = response.data.map(item => item.trend);
@@ -22,7 +22,7 @@ const Trend = () => {
 
   return (
     <div>
-      <h2>Trend Over Time</h2>
+
       <Plot
         data={[
           {
