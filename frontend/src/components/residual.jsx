@@ -22,7 +22,7 @@ const Residual = () => {
 
   return (
     <div>
-      <h2>Residual Over Time</h2>
+
       <Plot
         data={[
           {
