@@ -52,7 +52,9 @@ const DuDoan = () => {
   }, []);
 
   return (
-    <div className="duDoan-container">
+    <div style={{ color: '#333',
+      minHeight: '100vh',
+      padding: '20px', }}>
       {/* Biểu đồ nhiệt độ theo adjusted_label */}
       <div className="chart-container">
         <h3>Biểu đồ nhiệt độ qua các ngày</h3>
