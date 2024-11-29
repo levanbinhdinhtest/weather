@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';  // Import axios để sử dụng
 import Plot from 'react-plotly.js';  // Import thư viện Plotly để vẽ biểu đồ
 
-import './CorrelationMatrix.css';  // Import CSS để trang trí giao diện
+// import './CorrelationMatrix.css';  // Import CSS để trang trí giao diện
 
 const CorrelationMatrix = () => {
   const [correlationMatrix, setCorrelationMatrix] = useState(null);
@@ -22,11 +22,14 @@ const CorrelationMatrix = () => {
   // Nếu ma trận correlation chưa được tải, hiển thị thông báo loading
   if (!correlationMatrix) {
     return <div>Loading...</div>;
+    
   }
 
   // Vẽ biểu đồ heatmap cho ma trận correlation
   return (
-    <div className="correlation-container">
+    <div style={{ color: '#333',
+      minHeight: '100vh',
+      padding: '20px', }}>
       <h3>Ma Trận Correlation Giữa Các Biến</h3>
       <Plot
         data={[

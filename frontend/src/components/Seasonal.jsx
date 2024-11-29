@@ -21,7 +21,9 @@ const Seasonal = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ color: '#333',
+      minHeight: '100vh',
+      padding: '20px', }}>
       <Plot
         data={[
           {

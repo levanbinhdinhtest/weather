@@ -9,12 +9,7 @@ const LayoutPattern1 = () => {
   const [activeKey, setActiveKey] = useState('daily');
 
   return (
-    <Container fluid   style={{
-      // background: 'linear-gradient(to right, #3ab5b0 0%, #3d99be 31%, #56317a 100%)',
-      color: '#333',
-      minHeight: '100vh',
-      padding: '20px',
-    }}>
+    <Container fluid style={{ backgroundColor: '#1e293b', color: '#ffffff', minHeight: '100vh', padding: '20px' }}>
       <Row>
         <Col>
           <h1 className="text-center mb-4">Thống kê thời tiết</h1>

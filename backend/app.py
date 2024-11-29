@@ -19,7 +19,7 @@ def get_db_connection():
     connection = mysql.connector.connect(**db_config)
     return connection
 
-# API để lấy tất cả dữ liệu thời tiết
+# API để lấy tất cả dữ liệu thời tiết theo ngayf
 @app.route('/api/weather', methods=['GET'])
 def get_weather_data():
     connection = get_db_connection()
@@ -92,6 +92,8 @@ def get_weather_pattern7():
     cursor.close()
     connection.close()
     return jsonify(weather_data)
+
+# API để lấy tất cả dữ liệu thời tiết theo tuan
 @app.route('/api/weather/daily', methods=['GET'])
 def get_weather_data_daily():
     connection = get_db_connection()
@@ -124,4 +126,5 @@ def get_weather_data_monthly():
     return jsonify(weather_data)  # Trả về dữ liệu dưới dạng JSON
 
 if __name__ == '__main__':
+
     app.run(debug=True)
