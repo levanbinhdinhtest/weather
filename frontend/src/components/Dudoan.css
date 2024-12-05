@@ -1,4 +1,17 @@
 /* Cấu trúc chung */
+.pie-charts-container {
+  display: flex;
+  justify-content: space-around; /* Căn chỉnh các Pie Chart đều nhau */
+  gap: 20px; /* Khoảng cách giữa các Pie Chart */
+  flex-wrap: wrap; /* Cho phép các Pie Chart xuống dòng khi không đủ không gian */
+  margin-top: 30px;
+}
+
+.pie-chart {
+  width: 45%; /* Điều chỉnh kích thước của mỗi Pie Chart */
+  margin-bottom: 20px; /* Khoảng cách dưới mỗi Pie Chart */
+}
+
 .duDoan-container {
     width: 80%;
     margin: 0 auto;

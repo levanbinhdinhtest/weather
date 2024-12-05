@@ -124,6 +124,16 @@ def get_weather_data_monthly():
     cursor.close()
     connection.close()
     return jsonify(weather_data)  # Trả về dữ liệu dưới dạng JSON
+# API để vẽ spai chạc
+@app.route('/api/weather/spiderChart', methods=['GET'])
+def get_weather_spiderChart():
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)  # Trả về kết quả dưới dạng dictionary
+    cursor.execute('SELECT date,adjusted_label FROM weather_season')
+    weather_data = cursor.fetchall()  # Lấy tất cả dữ liệu từ bảng
+    cursor.close()
+    connection.close()
+    return jsonify(weather_data)  # Trả về dữ liệu dưới dạng JSON
 
 if __name__ == '__main__':
 
